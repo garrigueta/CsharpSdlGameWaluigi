@@ -1,0 +1,7 @@
+C:\Users\gueta\Documents\Visual Studio 2010\Projects\SDLProj\SDLProj\bin\Debug\SDLProj.exe
+C:\Users\gueta\Documents\Visual Studio 2010\Projects\SDLProj\SDLProj\bin\Debug\SDLProj.pdb
+C:\Users\gueta\Documents\Visual Studio 2010\Projects\SDLProj\SDLProj\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\gueta\Documents\Visual Studio 2010\Projects\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
+C:\Users\gueta\Documents\Visual Studio 2010\Projects\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb
+C:\Users\Ferran\Dropbox\projectes\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
+C:\Users\Ferran\Dropbox\projectes\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb
