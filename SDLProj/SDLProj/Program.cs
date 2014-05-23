@@ -25,6 +25,7 @@ namespace SdlDotNetExamples.SmallDemos
         bool _rightArrowFired;
 
         bool _isJumping;
+        int _jumpPosition;
 
         string _cursorStatus;
 
@@ -35,6 +36,7 @@ namespace SdlDotNetExamples.SmallDemos
         /// </summary>
         public JoystickExample()
         {
+            this._jumpPosition = 0;
             this.loaded = false;
             this._upArrowFired=false;
             this._downArrowFired = false;
@@ -116,7 +118,7 @@ namespace SdlDotNetExamples.SmallDemos
             {
                 if (this._isJumping)
                 {
-                    this.hero.CurrentAnimation = "jumping_left";
+                    this.hero.CurrentAnimation = "running_left";// "jumping_left";
                 }
                 else
                 {
@@ -128,7 +130,7 @@ namespace SdlDotNetExamples.SmallDemos
             {
                 if (this._isJumping)
                 {
-                    this.hero.CurrentAnimation = "jumping_right";
+                    this.hero.CurrentAnimation = "running_right";// "jumping_right";
                 }
                 else
                 {
@@ -174,10 +176,26 @@ namespace SdlDotNetExamples.SmallDemos
         {
             bool modify = false;
 
-            if (this._upArrowFired)
+            if (this._isJumping)
             {
-                this.hero.position.Y = (int)this.hero.position.Y - 2;
+                if (this._jumpPosition <= 15 && this._jumpPosition >= 0)
+                {
+                    this._jumpPosition++;
+                }else
+                {
+                    this._isJumping = false;
+                    this._jumpPosition = -1;
+                }
 
+            }else{
+                if (this._jumpPosition >= -17 && this._jumpPosition <= -1)
+                {
+                    this._jumpPosition--;
+                }
+                if (this._jumpPosition == -17)
+                {
+                    this._jumpPosition = 0;
+                }
             }
             if (this._downArrowFired)
             {
@@ -201,7 +219,9 @@ namespace SdlDotNetExamples.SmallDemos
                 }
                 this.hero.position.X = (int)this.hero.position.X + 2;
             }
+            Console.WriteLine("Jump Position: " + this._jumpPosition);
 
+            this.hero.position.Y = (int)this.hero.position.Y - this._jumpPosition;
             if (modify) { this.setCursor(); }
 
         }
@@ -217,6 +237,10 @@ namespace SdlDotNetExamples.SmallDemos
             if (e.Key == Key.UpArrow)
             {
                 this._upArrowFired = true;
+                if(this._jumpPosition==0){
+                    this._isJumping = true;
+                }
+                
             }
             if (e.Key == Key.DownArrow)
             {
