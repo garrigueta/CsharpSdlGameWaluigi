@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Drawing;
-using System.Threading;
-using System.IO;
-using System.Runtime.InteropServices;
 
 using SdlDotNet.Graphics;
 using SdlDotNet.Input;
-using SdlDotNet.Audio;
 using SdlDotNet.Core;
-using SdlDotNet.Graphics.Sprites;
 using System.Collections.Generic;
 
 namespace SdlDotNetExamples.SmallDemos
@@ -22,6 +17,8 @@ namespace SdlDotNetExamples.SmallDemos
         Surface screen;
         Surface cursor;
 
+        bool loaded;
+
         bool _upArrowFired;
         bool _downArrowFired;
         bool _leftArrowFired;
@@ -31,20 +28,21 @@ namespace SdlDotNetExamples.SmallDemos
 
         string _cursorStatus;
 
-        AnimatedSprite hero;
+        SDLProj.Classes.Players.Player hero;
         /// <summary>
 
         /// 
         /// </summary>
         public JoystickExample()
         {
+            this.loaded = false;
             this._upArrowFired=false;
             this._downArrowFired = false;
             this._leftArrowFired = false;
             this._rightArrowFired = false;
             this._isJumping = false;
-            this._cursorStatus = "stopped";
-            this.hero = new AnimatedSprite();
+            this._cursorStatus = "stopped_left";
+            this.hero = new SDLProj.Classes.Players.Player();
         }
 
         /// <summary>
@@ -83,49 +81,34 @@ namespace SdlDotNetExamples.SmallDemos
 
         private void configAnimations()
         {
+            Console.WriteLine("configAnimations");
             List<String> animation_file_names = new List<String>();
             animation_file_names.Add("running_left");
             animation_file_names.Add("running_right");
-            AnimationDictionary animations = new AnimationDictionary(); 
-            // Load the frames into the animation
 
-            foreach (string item in animation_file_names)
-            {
-
-                AnimationCollection walk = new AnimationCollection();
-                SurfaceCollection dummy_walk = new SurfaceCollection();
-                for (int i = 0; i <= 7; i++)
-                {              
-                    dummy_walk.Add("Data/hero/running/" + item + "0" + i + ".bmp", new Size(38, 51));                   
-                }
-                walk.Add(dummy_walk);
-                // Change the delay between frames
-                walk.Delay = 200;  // wait 1 second each frame.
-                this.hero.Animations.Add(item, walk);
-            }
-
-            AnimationCollection stop_right = new AnimationCollection();
-            SurfaceCollection dummy_stop_right = new SurfaceCollection();
-            dummy_stop_right.Add("Data/hero/stopped_right.bmp", new Size(38, 51));
-            stop_right.Add(dummy_stop_right);
-            this.hero.Animations.Add("stopped_right", stop_right);
-
-            AnimationCollection stop_left = new AnimationCollection();
-            SurfaceCollection dummy_stop_left = new SurfaceCollection();
-            dummy_stop_left.Add("Data/hero/stopped_left.bmp", new Size(38, 51));
-            stop_left.Add(dummy_stop_left);
-            this.hero.Animations.Add("stopped_left", stop_left);
-
-            this.hero.CurrentAnimation = "stopped_right";
-            this.hero.Animate = true;
+            //add hero animation info 
+            Dictionary<String, int> animations = new Dictionary<String, int>();
+            animations.Add("running_left", 7);
+            animations.Add("running_right", 7);
+            animations.Add("stopped_right", 0);
+            animations.Add("stopped_left", 0);
+            Console.WriteLine("this.hero.fillData('hero',animations);");
+            this.hero.fillData("hero",animations);
+            this.loaded = true;
+            //this.hero.init("stopped_right");
+            
         }
 
         private void Tick(object sender, TickEventArgs e)
         {
-            screen.Fill(Color.Black);
-            this.updatePosition();
-            screen.Blit(this.hero,position);
-            screen.Update();
+            if(this.loaded){
+                Console.WriteLine("Tick(object sender, TickEventArgs e)");
+                screen.Fill(Color.Black);
+                this.updatePosition();
+                screen.Blit(this.hero, this.hero.position);
+                screen.Update();
+            }
+            
         }
         private void setCursor()
         {
@@ -193,12 +176,12 @@ namespace SdlDotNetExamples.SmallDemos
 
             if (this._upArrowFired)
             {
-                position.Y = (int)position.Y - 2;
+                this.hero.position.Y = (int)this.hero.position.Y - 2;
 
             }
             if (this._downArrowFired)
             {
-                position.Y = (int)position.Y + 2;
+                this.hero.position.Y = (int)this.hero.position.Y + 2;
             }
             if (this._leftArrowFired)
             {
@@ -207,7 +190,7 @@ namespace SdlDotNetExamples.SmallDemos
                     this._cursorStatus = "running_left";
                     modify = true;
                 }
-                position.X = (int)position.X - 2;
+                this.hero.position.X = (int)this.hero.position.X - 2;
             }
             if (this._rightArrowFired)
             {
@@ -216,7 +199,7 @@ namespace SdlDotNetExamples.SmallDemos
                     this._cursorStatus = "running_right";
                     modify = true;
                 }
-                position.X = (int)position.X + 2;
+                this.hero.position.X = (int)this.hero.position.X + 2;
             }
 
             if (modify) { this.setCursor(); }

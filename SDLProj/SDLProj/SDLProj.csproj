@@ -54,8 +54,58 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left00.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left01.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left02.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left03.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left04.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left05.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left06.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left07.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left08.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_left\running_left09.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right00.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right01.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right02.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right03.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right04.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right05.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right06.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right07.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right08.bmp" />
+    <Content Include="bin\Debug\Data\hero\running_right\running_right09.bmp" />
+    <Content Include="bin\Debug\Data\hero\stopped_left\stopped_left.bmp" />
+    <Content Include="bin\Debug\Data\hero\stopped_right\stopped_right.bmp" />
+    <Content Include="Data\hero\running_left\running_left00.bmp" />
+    <Content Include="Data\hero\running_left\running_left01.bmp" />
+    <Content Include="Data\hero\running_left\running_left02.bmp" />
+    <Content Include="Data\hero\running_left\running_left03.bmp" />
+    <Content Include="Data\hero\running_left\running_left04.bmp" />
+    <Content Include="Data\hero\running_left\running_left05.bmp" />
+    <Content Include="Data\hero\running_left\running_left06.bmp" />
+    <Content Include="Data\hero\running_left\running_left07.bmp" />
+    <Content Include="Data\hero\running_left\running_left08.bmp" />
+    <Content Include="Data\hero\running_left\running_left09.bmp" />
+    <Content Include="Data\hero\running_right\running_right00.bmp" />
+    <Content Include="Data\hero\running_right\running_right01.bmp" />
+    <Content Include="Data\hero\running_right\running_right02.bmp" />
+    <Content Include="Data\hero\running_right\running_right03.bmp" />
+    <Content Include="Data\hero\running_right\running_right04.bmp" />
+    <Content Include="Data\hero\running_right\running_right05.bmp" />
+    <Content Include="Data\hero\running_right\running_right06.bmp" />
+    <Content Include="Data\hero\running_right\running_right07.bmp" />
+    <Content Include="Data\hero\running_right\running_right08.bmp" />
+    <Content Include="Data\hero\running_right\running_right09.bmp" />
+    <Content Include="Data\hero\stopped.bmp" />
+    <Content Include="Data\hero\stopped.gif" />
+    <Content Include="Data\hero\stopped.png" />
+    <Content Include="Data\hero\stopped_left\stopped_left.bmp" />
+    <Content Include="Data\hero\stopped_left.gif" />
+    <Content Include="Data\hero\stopped_right\stopped_right.bmp" />
+    <Content Include="Data\hero\walking_left.gif" />
+    <Content Include="Data\hero\walking_right.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
