@@ -27,6 +27,8 @@ namespace SdlDotNetExamples.SmallDemos
         bool _leftArrowFired;
         bool _rightArrowFired;
 
+        bool _isJumping;
+
         string _cursorStatus;
 
         AnimatedSprite hero;
@@ -40,6 +42,7 @@ namespace SdlDotNetExamples.SmallDemos
             this._downArrowFired = false;
             this._leftArrowFired = false;
             this._rightArrowFired = false;
+            this._isJumping = false;
             this._cursorStatus = "stopped";
             this.hero = new AnimatedSprite();
         }
@@ -128,11 +131,26 @@ namespace SdlDotNetExamples.SmallDemos
         {
             if (this._leftArrowFired)
             {
-                this.hero.CurrentAnimation = "running_left";
+                if (this._isJumping)
+                {
+                    this.hero.CurrentAnimation = "jumping_left";
+                }
+                else
+                {
+                    this.hero.CurrentAnimation = "running_left";
+                }
+                
             }
             else if (this._rightArrowFired)
             {
+                if (this._isJumping)
+                {
+                    this.hero.CurrentAnimation = "jumping_right";
+                }
+                else
+                {
                 this.hero.CurrentAnimation = "running_right";
+                }
             }
             else
             {
