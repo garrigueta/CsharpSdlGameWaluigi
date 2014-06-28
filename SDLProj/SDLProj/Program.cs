@@ -13,6 +13,10 @@ namespace SdlDotNetExamples.SmallDemos
         Point position = new Point(100, 100);
         int width = 640;
         int height = 480;
+
+        private static Surface m_Background;
+        private static Point m_BackgroundPosition;
+
         Joystick joystick;
         Surface screen;
         Surface cursor;
@@ -74,10 +78,11 @@ namespace SdlDotNetExamples.SmallDemos
             Video.WindowCaption = "SdlDotNet - Joystick Example";
             screen = Video.SetVideoMode(width, height, true);
             Mouse.ShowCursor = false; // hide the cursor
-
+            //background config
+            m_Background = (new Surface(@"../../Data/background/background.png")).Convert(screen, true, false);
+            m_BackgroundPosition = new Point(0, 0);
             Surface surf = screen.CreateCompatibleSurface(width, height, true);
             surf.Fill(new Rectangle(new Point(0, 0), surf.Size), System.Drawing.Color.Black);
-
             Events.Run();
         }
 
@@ -87,7 +92,7 @@ namespace SdlDotNetExamples.SmallDemos
             List<String> animation_file_names = new List<String>();
             animation_file_names.Add("running_left");
             animation_file_names.Add("running_right");
-
+            
             //add hero animation info 
             Dictionary<String, int> animations = new Dictionary<String, int>();
             animations.Add("running_left", 7);
@@ -97,7 +102,6 @@ namespace SdlDotNetExamples.SmallDemos
             Console.WriteLine("this.hero.fillData('hero',animations);");
             this.hero.fillData("hero",animations);
             this.loaded = true;
-            //this.hero.init("stopped_right");
             
         }
 
@@ -107,6 +111,7 @@ namespace SdlDotNetExamples.SmallDemos
                 Console.WriteLine("Tick(object sender, TickEventArgs e)");
                 screen.Fill(Color.Black);
                 this.updatePosition();
+                screen.Blit(m_Background, m_BackgroundPosition);
                 screen.Blit(this.hero, this.hero.position);
                 screen.Update();
             }

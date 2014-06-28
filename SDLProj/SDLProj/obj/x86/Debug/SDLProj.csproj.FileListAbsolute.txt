@@ -15,3 +15,7 @@ C:\Users\garrigueta\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\De
 C:\Users\garrigueta\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\garrigueta\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
 C:\Users\garrigueta\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb
+C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDLProj.exe
+C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDLProj.pdb
+C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
+C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb

@@ -31,8 +31,8 @@ namespace SDLProj.Classes.Players
                 SurfaceCollection surfCollect = new SurfaceCollection();
                 if (anim.Value == 0)
                 {
-                    Console.WriteLine("Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp");
-                    surfCollect.Add("Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp", new Size(38, 51));
+                    Console.WriteLine("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp");
+                    surfCollect.Add("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp", new Size(38, 51));
                 }
                 else
                 {
@@ -40,8 +40,8 @@ namespace SDLProj.Classes.Players
                     {
                         String zero = "";
                         if (i <= 9) zero = "0";
-                        Console.WriteLine("Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp");
-                        surfCollect.Add("Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp", new Size(38, 51));
+                        Console.WriteLine("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp");
+                        surfCollect.Add("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp", new Size(38, 51));
                     }
                 }
                 animCollect.Add(surfCollect);
