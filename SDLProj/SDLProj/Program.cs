@@ -23,6 +23,8 @@ namespace SdlDotNetExamples.SmallDemos
 
         bool loaded;
 
+        bool apply_gravity;
+
         bool _upArrowFired;
         bool _downArrowFired;
         bool _leftArrowFired;
@@ -40,6 +42,7 @@ namespace SdlDotNetExamples.SmallDemos
         /// </summary>
         public JoystickExample()
         {
+            this.apply_gravity = true;
             this._jumpPosition = 0;
             this.loaded = false;
             this._upArrowFired=false;
@@ -108,7 +111,7 @@ namespace SdlDotNetExamples.SmallDemos
         private void Tick(object sender, TickEventArgs e)
         {
             if(this.loaded){
-                Console.WriteLine("Tick(object sender, TickEventArgs e)");
+                //Console.WriteLine("Tick(object sender, TickEventArgs e)");
                 screen.Fill(Color.Black);
                 this.updatePosition();
                 screen.Blit(m_Background, m_BackgroundPosition);
@@ -214,6 +217,11 @@ namespace SdlDotNetExamples.SmallDemos
                     modify = true;
                 }
                 this.hero.position.X = (int)this.hero.position.X - 2;
+                if (this.hero.position.X <= (width / 2) && m_BackgroundPosition.X != 0) { this.hero.position.X = (width / 2); }
+                if (this.hero.position.X >= (width / 2) && m_BackgroundPosition.X <= 0)
+                {
+                    m_BackgroundPosition.X += 2;
+                }
             }
             if (this._rightArrowFired)
             {
@@ -223,12 +231,17 @@ namespace SdlDotNetExamples.SmallDemos
                     modify = true;
                 }
                 this.hero.position.X = (int)this.hero.position.X + 2;
+                if (this.hero.position.X >= (width / 2)) { this.hero.position.X = (width / 2); }
+                if (this.hero.position.X >= (width / 2) && m_BackgroundPosition.X <= 2)
+                {
+                    m_BackgroundPosition.X -= 2;
+                }
             }
-            Console.WriteLine("Jump Position: " + this._jumpPosition);
-
+            //Console.WriteLine("Jump Position: " + this._jumpPosition);
+            
             this.hero.position.Y = (int)this.hero.position.Y - this._jumpPosition;
+            if (this.apply_gravity && !this._isJumping) { this.hero.position.Y += 6; }
             if (modify) { this.setCursor(); }
-
         }
         
         private void KeyboardDown(object sender, KeyboardEventArgs e)
