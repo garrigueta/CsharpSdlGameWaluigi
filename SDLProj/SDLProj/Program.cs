@@ -5,6 +5,8 @@ using SdlDotNet.Graphics;
 using SdlDotNet.Input;
 using SdlDotNet.Core;
 using System.Collections.Generic;
+using SDLProj.Classes.Core;
+using SDLProj.Classes.Level;
 
 namespace SdlDotNetExamples.SmallDemos
 {
@@ -20,6 +22,9 @@ namespace SdlDotNetExamples.SmallDemos
         Joystick joystick;
         Surface screen;
         Surface cursor;
+
+        Collisions coll = new Collisions();
+        Ground grd = new Ground();
 
         bool loaded;
 
@@ -113,10 +118,13 @@ namespace SdlDotNetExamples.SmallDemos
             if(this.loaded){
                 //Console.WriteLine("Tick(object sender, TickEventArgs e)");
                 screen.Fill(Color.Black);
+                this.apply_gravity = !coll.Sprite_Collide(this.hero, this.grd);
                 this.updatePosition();
-                screen.Blit(m_Background, m_BackgroundPosition);
+                screen.Blit(grd.m_Background, grd.Position);
+                //screen.Blit(m_Background, m_BackgroundPosition);
                 screen.Blit(this.hero, this.hero.position);
                 screen.Update();
+
             }
             
         }
@@ -240,7 +248,14 @@ namespace SdlDotNetExamples.SmallDemos
             //Console.WriteLine("Jump Position: " + this._jumpPosition);
             
             this.hero.position.Y = (int)this.hero.position.Y - this._jumpPosition;
+
+            //Check collissions
+
+
+            
+
             if (this.apply_gravity && !this._isJumping) { this.hero.position.Y += 6; }
+
             if (modify) { this.setCursor(); }
         }
         

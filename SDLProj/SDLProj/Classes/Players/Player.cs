@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using SdlDotNet.Graphics.Sprites;
 using SdlDotNet.Graphics;
 using System.Drawing;
+using System.Collections;
 
 namespace SDLProj.Classes.Players
 {
     class Player:AnimatedSprite
     {
+
+        private int height = 51, width = 38;
         public Point position = new Point(100, 100);
         //AnimationDictionary adAnimations = new AnimationDictionary();
         Dictionary<String,int> animations;
@@ -32,7 +35,7 @@ namespace SDLProj.Classes.Players
                 if (anim.Value == 0)
                 {
                     Console.WriteLine("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp");
-                    surfCollect.Add("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp", new Size(38, 51));
+                    surfCollect.Add("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + ".bmp", new Size(width, height));
                 }
                 else
                 {
@@ -41,7 +44,7 @@ namespace SDLProj.Classes.Players
                         String zero = "";
                         if (i <= 9) zero = "0";
                         Console.WriteLine("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp");
-                        surfCollect.Add("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp", new Size(38, 51));
+                        surfCollect.Add("../../Data/" + this.name + "/" + anim.Key + "/" + anim.Key + zero + i + ".bmp", new Size(width, height));
                     }
                 }
                 animCollect.Add(surfCollect);
@@ -53,5 +56,9 @@ namespace SDLProj.Classes.Players
             base.Animate = true;
         }
 
+        public Size getSize()
+        {
+            return new Size(height, width);
+        }
     }
 }
