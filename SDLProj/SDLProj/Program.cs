@@ -194,7 +194,7 @@ namespace SdlDotNetExamples.SmallDemos
 
             if (this._isJumping)
             {
-                if (this._jumpPosition <= 15 && this._jumpPosition >= 0)
+                if (this._jumpPosition <= 10 && this._jumpPosition >= 0)
                 {
                     this._jumpPosition++;
                 }else
@@ -204,11 +204,11 @@ namespace SdlDotNetExamples.SmallDemos
                 }
 
             }else{
-                if (this._jumpPosition >= -17 && this._jumpPosition <= -1)
+                if (this._jumpPosition >= -10 && this._jumpPosition <= -1)
                 {
                     this._jumpPosition--;
                 }
-                if (this._jumpPosition == -17)
+                if (this._jumpPosition == -10)
                 {
                     this._jumpPosition = 0;
                 }
@@ -229,6 +229,7 @@ namespace SdlDotNetExamples.SmallDemos
                 if (this.hero.position.X >= (width / 2) && m_BackgroundPosition.X <= 0)
                 {
                     m_BackgroundPosition.X += 2;
+                    grd.increaseX();
                 }
             }
             if (this._rightArrowFired)
@@ -243,6 +244,7 @@ namespace SdlDotNetExamples.SmallDemos
                 if (this.hero.position.X >= (width / 2) && m_BackgroundPosition.X <= 2)
                 {
                     m_BackgroundPosition.X -= 2;
+                    grd.decreaseX();
                 }
             }
             //Console.WriteLine("Jump Position: " + this._jumpPosition);
@@ -254,7 +256,7 @@ namespace SdlDotNetExamples.SmallDemos
 
             
 
-            if (this.apply_gravity && !this._isJumping) { this.hero.position.Y += 6; }
+            if (this.apply_gravity && !this._isJumping) { this.hero.position.Y += 5; }
 
             if (modify) { this.setCursor(); }
         }

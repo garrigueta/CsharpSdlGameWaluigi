@@ -13,7 +13,7 @@ namespace SDLProj.Classes.Level
         private int height = 100, width = 900;
         private ArrayList area = new ArrayList();
         public Point Position = new Point(0, 400);
-        public Size Size = new Size(10,300);
+        public Size Size = new Size(10,800);
         public Ground()
         {
             m_Background = new SdlDotNet.Graphics.Surface("../../Data/level1/grass.jpg");
@@ -22,6 +22,16 @@ namespace SDLProj.Classes.Level
         public Size getSize()
         {
             return new Size(width,height );
+        }
+        public void increaseX()
+        {
+            this.Position.X++;
+            this.Position.X++;
+        }
+        public void decreaseX()
+        {
+            this.Position.X--;
+            this.Position.X--;
         }
     }
 }
