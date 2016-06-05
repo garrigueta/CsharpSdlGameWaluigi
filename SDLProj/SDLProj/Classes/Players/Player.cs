@@ -24,6 +24,7 @@ namespace SDLProj.Classes.Players
         bool _isJumping;
         int _jumpPosition;
         string _cursorStatus;
+        public Joystick joystick;
 
         public void configPlayer()
         {
@@ -37,6 +38,16 @@ namespace SDLProj.Classes.Players
             List<String> animation_file_names = new List<String>();
             animation_file_names.Add("running_left");
             animation_file_names.Add("running_right");
+
+
+            if (Joysticks.IsInitialized)
+            {
+                joystick = Joysticks.OpenJoystick(0);
+            }
+            else
+            {
+                Console.WriteLine("Joy Not Initialized");
+            }
 
             //add hero animation info 
             Dictionary<String, int> animations = new Dictionary<String, int>();
@@ -94,12 +105,12 @@ namespace SDLProj.Classes.Players
 
             if (this._isJumping)
             {
-                if (this._jumpPosition <= 10 )
+                if (this._jumpPosition <= 16 )
                 {
-                    this._jumpPosition += 1;
+                    this._jumpPosition += 2;
                 }
                 else{
-                    _isJumping = false;
+                    _isJumping = _downArrowFired;
                 }
 
             }else{
@@ -107,8 +118,6 @@ namespace SDLProj.Classes.Players
                 {
                     this._jumpPosition -= 1;
                 }
-
-                
             }
 
 
@@ -181,9 +190,10 @@ namespace SDLProj.Classes.Players
 
             if (e.Key == Key.UpArrow)
             {
-                this._upArrowFired = true;
-                if (this._jumpPosition <= 0)
+                
+                if (this._jumpPosition <= 0 && !apply_gravity)
                 {
+                    this._upArrowFired = true;
                     this._isJumping = true;
                 }
 
@@ -202,6 +212,23 @@ namespace SDLProj.Classes.Players
             }
 
 
+        }
+
+        public void JoystickAxisChanged(object sender, JoystickAxisEventArgs e)
+        {
+            if (e.AxisIndex == 0)
+            {
+                position.X = (int)(joystick.GetAxisPosition(JoystickAxis.Horizontal) * width);
+            }
+            else if (e.AxisIndex == 1)
+            {
+                position.Y = (int)(joystick.GetAxisPosition(JoystickAxis.Vertical) * height);
+            }
+        }
+
+        public void JoystickButtonDown(object sender, JoystickButtonEventArgs e)
+        {
+            Console.WriteLine("Joystick button was pressed");
         }
 
         private void setCursor()

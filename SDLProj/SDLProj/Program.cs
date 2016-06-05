@@ -15,7 +15,7 @@ namespace SdlDotNetExamples.SmallDemos
         public static void Main()
         {
             SdlWindow window = new SdlWindow();
-            window.Go();
+            window.Start();
         }
     }
 }
