@@ -16,7 +16,7 @@ namespace SDLProj.Classes.Level
         public Size Size = new Size(10,800);
         public Ground()
         {
-            m_Background = new SdlDotNet.Graphics.Surface("../../Data/level1/grass.jpg");
+            m_Background = new SdlDotNet.Graphics.Surface(ResourceData.grass);
            // m_Background.Height = height;
         }
         public Size getSize()

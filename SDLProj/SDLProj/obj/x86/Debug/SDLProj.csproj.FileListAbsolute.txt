@@ -20,8 +20,7 @@ C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Deb
 C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.csprojResolveAssemblyReference.cache
 C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
 C:\Users\Ferraniku\Documents\GitHub\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb
+C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDLProj.exe.config
 C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDLProj.exe
 C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDLProj.pdb
 C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SdlDotNet.dll
@@ -29,9 +28,7 @@ C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\Tao.S
 C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SdlDotNet.xml
 C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\Tao.Sdl.xml
 C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.csprojResolveAssemblyReference.cache
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\lib\SdlDotNet.dll
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\lib\SdlDotNet.xml
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\lib\Tao.Sdl.dll
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\lib\Tao.Sdl.xml
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDLProj.exe.config
-C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\bin\Debug\SDL_image.dll
+C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.ResourceData.resources
+C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.csproj.GenerateResource.Cache
+C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.exe
+C:\Users\gueta\Source\Repos\CsharpSdlGameWaluigi\SDLProj\SDLProj\obj\x86\Debug\SDLProj.pdb

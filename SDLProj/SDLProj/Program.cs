@@ -1,6 +1,7 @@
 ﻿using System;
 
 using SDLProj;
+using System.Drawing;
 
 namespace SdlDotNetExamples.SmallDemos
 {
@@ -13,8 +14,8 @@ namespace SdlDotNetExamples.SmallDemos
         [STAThread]
         public static void Main()
         {
-            JoystickExample joystickExample = new JoystickExample();
-            joystickExample.Go();
+            SdlWindow window = new SdlWindow();
+            window.Go();
         }
     }
 }
