@@ -42,7 +42,7 @@ public class SdlWindow : IDisposable
         this.configElements();
 
         Video.WindowIcon();
-        Video.WindowCaption = "SdlDotNet - Joystick Example";
+        Video.WindowCaption = "SdlDotNet - Waluigi 2D Game";
         screen = Video.SetVideoMode(width, height, true);
         Mouse.ShowCursor = false; 
         Surface surf = screen.CreateCompatibleSurface(width, height, true);
@@ -136,6 +136,4 @@ public class SdlWindow : IDisposable
     }
 
     #endregion
-
-
 }

@@ -11,7 +11,6 @@ namespace SDLProj.Classes.Players
 {
     class Player:AnimatedSprite
     {
-
         private int height = 51, width = 38;
         public Point position = new Point(320, 100);
         Dictionary<String,int> animations;
