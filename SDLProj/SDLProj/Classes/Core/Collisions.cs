@@ -40,7 +40,7 @@ namespace SDLProj.Classes.Core
 
        public bool Sprite_Collide(Player object1, Ground object2)
         {
-  
+
 	        int left1, left2;
 	        int right1, right2;
 	        int top1, top2;
