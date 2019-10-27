@@ -16,7 +16,6 @@ namespace Game.Data.Classes.Players
         public Point position = new Point(320, 100);
         Dictionary<String,int> animations;
         string name;
-        private bool apply_gravity;
         bool _upArrowFired;
         bool _downArrowFired;
         bool _leftArrowFired;
@@ -26,7 +25,11 @@ namespace Game.Data.Classes.Players
         string _cursorStatus;
         public Joystick joystick;
 
-        public bool Apply_gravity { get => apply_gravity; set => apply_gravity = value; }
+        public bool ApplyGravity { get; set; } = false;
+
+        public bool AllowMoveRight { get; set; } = false;
+
+        public bool AllowMoveLeft { get; set; } = false;
 
         public void ConfigPlayer()
         {
@@ -123,7 +126,7 @@ namespace Game.Data.Classes.Players
             }
 
 
-            if (this._leftArrowFired)
+            if (this._leftArrowFired && AllowMoveLeft)
             {
                 if (this._cursorStatus != "running_left")
                 {
@@ -132,7 +135,7 @@ namespace Game.Data.Classes.Players
                 }
                 this.position.X = (int)this.position.X - 2;
             }
-            if (this._rightArrowFired)
+            if (this._rightArrowFired && AllowMoveRight)
             {
                 if (this._cursorStatus != "running_right")
                 {
@@ -145,7 +148,7 @@ namespace Game.Data.Classes.Players
 
             this.position.Y -= _jumpPosition;
 
-            if (this.Apply_gravity && !this._isJumping) { this.position.Y += 10; }
+            if (this.ApplyGravity && !this._isJumping) { this.position.Y += 10; }
 
             if (modify) { this.setCursor(); }
         }
@@ -193,7 +196,7 @@ namespace Game.Data.Classes.Players
             if (e.Key == Key.UpArrow)
             {
                 
-                if (this._jumpPosition <= 0 && !Apply_gravity)
+                if (this._jumpPosition <= 0 && !ApplyGravity)
                 {
                     this._upArrowFired = true;
                     this._isJumping = true;

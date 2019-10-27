@@ -14,10 +14,10 @@ namespace Game.Data.Classes.Core
         }
         public bool CheckCollisions()
         {
-            for (int i = 0; i < elmements.Count;i++)
+            for (int i = 0; i < elmements.Count; i++)
             {
                 int[] elm1 = (int[])elmements[i];
-                int[] elm2 = (int[])elmements[i+1];
+                int[] elm2 = (int[])elmements[i + 1];
                 if (elm1[0] < ((int)elm2[0] + (int)elm2[2]) &&
                            elm1[0] + elm1[2] > elm2[0] &&
                            elm1[1] < elm2[1] + elm2[3] &&
@@ -29,20 +29,20 @@ namespace Game.Data.Classes.Core
                 {
                     return false;
                 }
-                
+
             }
-            return false;     
+            return false;
         }
 
-       public bool Sprite_Collide(Player object1, Level.Level object2)
+        public bool Sprite_Collide(Player object1, Level.Level object2)
         {
 
-	        int left1, left2;
-	        int right1, right2;
-	        int top1, top2;
-	        int bottom1, bottom2;
+            int left1, left2;
+            int right1, right2;
+            int top1, top2;
+            int bottom1, bottom2;
 
-	        left1 = object1.position.X;
+            left1 = object1.position.X;
             left2 = object2.Position.X;
             right1 = object1.position.X + object1.GetSize().Width;
             right2 = object2.Position.X + object2.GetSize().Width;
@@ -78,4 +78,6 @@ namespace Game.Data.Classes.Core
 
         }
     }
+        
+
 }

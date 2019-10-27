@@ -5,6 +5,7 @@ using Game.Data.Classes.Core;
 using Game.Data.Classes.Level;
 using SdlDotNet.Core;
 using System;
+using Game.Data.Classes.Players;
 
 public class SdlWindow : IDisposable
 {
@@ -16,17 +17,17 @@ public class SdlWindow : IDisposable
     Surface cursor;
 
     Collisions coll = new Collisions();
-    Level grd = new Level();
+    Level level;
 
     bool loaded;
 
-    Game.Data.Classes.Players.Player hero;
+    Player hero;
 
     public SdlWindow()
     {
         Video.WindowCaption = "Sdl Window";
         this.loaded = false;        
-        this.hero = new Game.Data.Classes.Players.Player();
+        this.hero = new Player();
     }
 
     public void Start()
@@ -45,13 +46,14 @@ public class SdlWindow : IDisposable
         screen = Video.SetVideoMode(width, height, true);
         Mouse.ShowCursor = false; 
         Surface surf = screen.CreateCompatibleSurface(width, height, true);
-        surf.Fill(new Rectangle(new Point(0, 0), surf.Size), System.Drawing.Color.Black);
+        surf.Fill(new Rectangle(new Point(0, 0), surf.Size), Color.Black);
         Events.Run();
     }
 
     private void ConfigElements()
     {
         this.hero.ConfigPlayer();
+        this.level = new Level(this.hero);
         this.loaded = true;
     }
 
@@ -60,9 +62,9 @@ public class SdlWindow : IDisposable
         if (this.loaded)
         {
             screen.Fill(Color.Black);
-            this.hero.Apply_gravity = !coll.Sprite_Collide(this.hero, this.grd);
+            this.level.CheckPlayerCollision();
             this.hero.UpdatePosition();
-            screen.Blit(grd.m_Background, grd.Position);
+            //screen.Blit(level.m_Background, level.Position);
             screen.Blit(this.hero, this.hero.position);
             screen.Update();
         }

@@ -12,5 +12,9 @@ namespace Game.Data.Classes.Level
         public Point Position { get; set; }
         public Size Size { get; set; }
 
+        public Block()
+        {
+            this.Size = new Size(this.height, this.width);
+        }
     }
 }
