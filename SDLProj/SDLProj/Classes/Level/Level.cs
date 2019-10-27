@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace SDLProj.Classes.Level
 {
-    class Ground
+    class Level
     {
         public SdlDotNet.Graphics.Surface m_Background;
         private readonly int height = 100;
@@ -11,7 +11,7 @@ namespace SDLProj.Classes.Level
         private readonly ArrayList area = new ArrayList();
         public Point Position = new Point(0, 400);
         public Size Size = new Size(10,800);
-        public Ground()
+        public Level()
         {
             m_Background = new SdlDotNet.Graphics.Surface(ResourceData.grass);
            // m_Background.Height = height;
@@ -19,16 +19,6 @@ namespace SDLProj.Classes.Level
         public Size GetSize()
         {
             return new Size(width,height );
-        }
-        public void IncreaseX()
-        {
-            this.Position.X++;
-            this.Position.X++;
-        }
-        public void DecreaseX()
-        {
-            this.Position.X--;
-            this.Position.X--;
         }
     }
 }

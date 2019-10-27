@@ -58,7 +58,7 @@
     <Compile Include="Classes\Core\Collisions.cs" />
     <Compile Include="Classes\Core\SdlWindow.cs" />
     <Compile Include="Classes\Debug\DebugConsole.cs" />
-    <Compile Include="Classes\Level\Ground.cs" />
+    <Compile Include="Classes\Level\Level.cs" />
     <Compile Include="Classes\Players\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

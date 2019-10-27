@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections;
-using SdlDotNet.Graphics.Sprites;
-using SDLProj.Classes.Level;
+﻿using SDLProj.Classes.Level;
 using SDLProj.Classes.Players;
+using System;
+using System.Collections;
 
 namespace SDLProj.Classes.Core
 {
     class Collisions
     {
         private ArrayList elmements;
-        public void addElement(ArrayList elm)
+        public void AddElement(ArrayList elm)
         {
             elmements.Add(elm);
         }
-        public bool checkCollisions()
+        public bool CheckCollisions()
         {
             for (int i = 0; i < elmements.Count;i++)
             {
@@ -38,7 +34,7 @@ namespace SDLProj.Classes.Core
             return false;     
         }
 
-       public bool Sprite_Collide(Player object1, Ground object2)
+       public bool Sprite_Collide(Player object1, Level.Level object2)
         {
 
 	        int left1, left2;

@@ -16,7 +16,7 @@ public class SdlWindow : IDisposable
     Surface cursor;
 
     Collisions coll = new Collisions();
-    Ground grd = new Ground();
+    Level grd = new Level();
 
     bool loaded;
 
@@ -38,7 +38,7 @@ public class SdlWindow : IDisposable
         Events.JoystickAxisMotion += new EventHandler<JoystickAxisEventArgs>(this.hero.JoystickAxisChanged);
         Events.JoystickButtonDown += new EventHandler<JoystickButtonEventArgs>(this.hero.JoystickButtonDown);
 
-        this.configElements();
+        this.ConfigElements();
 
         Video.WindowIcon();
         Video.WindowCaption = "SdlDotNet - Waluigi 2D Game";
@@ -49,7 +49,7 @@ public class SdlWindow : IDisposable
         Events.Run();
     }
 
-    private void configElements()
+    private void ConfigElements()
     {
         this.hero.ConfigPlayer();
         this.loaded = true;
