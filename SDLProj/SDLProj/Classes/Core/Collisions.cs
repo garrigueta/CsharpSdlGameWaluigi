@@ -48,12 +48,12 @@ namespace SDLProj.Classes.Core
 
 	        left1 = object1.position.X;
             left2 = object2.Position.X;
-            right1 = object1.position.X + object1.getSize().Width;
-            right2 = object2.Position.X + object2.getSize().Width;
+            right1 = object1.position.X + object1.GetSize().Width;
+            right2 = object2.Position.X + object2.GetSize().Width;
             top1 = object1.position.Y;
             top2 = object2.Position.Y;
-            bottom1 = object1.position.Y + object1.getSize().Height;
-            bottom2 = object2.Position.Y + object2.getSize().Height;
+            bottom1 = object1.position.Y + object1.GetSize().Height;
+            bottom2 = object2.Position.Y + object2.GetSize().Height;
 
             if (bottom1 < top2)
             {

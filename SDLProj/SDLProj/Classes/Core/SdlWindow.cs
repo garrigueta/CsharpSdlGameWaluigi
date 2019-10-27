@@ -5,13 +5,12 @@ using SDLProj.Classes.Core;
 using SDLProj.Classes.Level;
 using SdlDotNet.Core;
 using System;
-using System.Collections.Generic;
 
 public class SdlWindow : IDisposable
 {
     Point position = new Point(100, 100);
-    int width = 800;
-    int height = 600;
+    readonly int width = 800;
+    readonly int height = 600;
 
     Surface screen;
     Surface cursor;
@@ -52,7 +51,7 @@ public class SdlWindow : IDisposable
 
     private void configElements()
     {
-        this.hero.configPlayer();
+        this.hero.ConfigPlayer();
         this.loaded = true;
     }
 
@@ -61,8 +60,8 @@ public class SdlWindow : IDisposable
         if (this.loaded)
         {
             screen.Fill(Color.Black);
-            this.hero.apply_gravity = !coll.Sprite_Collide(this.hero, this.grd);
-            this.hero.updatePosition();
+            this.hero.Apply_gravity = !coll.Sprite_Collide(this.hero, this.grd);
+            this.hero.UpdatePosition();
             screen.Blit(grd.m_Background, grd.Position);
             screen.Blit(this.hero, this.hero.position);
             screen.Update();

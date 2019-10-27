@@ -11,11 +11,12 @@ namespace SDLProj.Classes.Players
 {
     class Player:AnimatedSprite
     {
-        private int height = 51, width = 38;
+        private readonly int height = 51;
+        private readonly int width = 38;
         public Point position = new Point(320, 100);
         Dictionary<String,int> animations;
         string name;
-        public bool apply_gravity;
+        private bool apply_gravity;
         bool _upArrowFired;
         bool _downArrowFired;
         bool _leftArrowFired;
@@ -25,7 +26,9 @@ namespace SDLProj.Classes.Players
         string _cursorStatus;
         public Joystick joystick;
 
-        public void configPlayer()
+        public bool Apply_gravity { get => apply_gravity; set => apply_gravity = value; }
+
+        public void ConfigPlayer()
         {
             this._upArrowFired = false;
             this._downArrowFired = false;
@@ -93,12 +96,12 @@ namespace SDLProj.Classes.Players
             base.Animate = true;
         }
 
-        public Size getSize()
+        public Size GetSize()
         {
             return new Size(height, width);
         }
 
-        public void updatePosition()
+        public void UpdatePosition()
         {
             bool modify = false;
 
@@ -142,7 +145,7 @@ namespace SDLProj.Classes.Players
 
             this.position.Y -= _jumpPosition;
 
-            if (this.apply_gravity && !this._isJumping) { this.position.Y += 10; }
+            if (this.Apply_gravity && !this._isJumping) { this.position.Y += 10; }
 
             if (modify) { this.setCursor(); }
         }
@@ -190,7 +193,7 @@ namespace SDLProj.Classes.Players
             if (e.Key == Key.UpArrow)
             {
                 
-                if (this._jumpPosition <= 0 && !apply_gravity)
+                if (this._jumpPosition <= 0 && !Apply_gravity)
                 {
                     this._upArrowFired = true;
                     this._isJumping = true;
