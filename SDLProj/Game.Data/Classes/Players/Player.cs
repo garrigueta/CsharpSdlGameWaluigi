@@ -7,7 +7,7 @@ using System.Collections;
 using SdlDotNet.Input;
 using SdlDotNet.Core;
 
-namespace SDLProj.Classes.Players
+namespace Game.Data.Classes.Players
 {
     class Player:AnimatedSprite
     {

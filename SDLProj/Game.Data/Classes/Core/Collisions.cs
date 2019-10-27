@@ -1,9 +1,9 @@
-﻿using SDLProj.Classes.Level;
-using SDLProj.Classes.Players;
+﻿using Game.Data.Classes.Level;
+using Game.Data.Classes.Players;
 using System;
 using System.Collections;
 
-namespace SDLProj.Classes.Core
+namespace Game.Data.Classes.Core
 {
     class Collisions
     {

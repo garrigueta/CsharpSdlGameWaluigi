@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Drawing;
 
-namespace SDLProj.Classes.Level
+namespace Game.Data.Classes.Level
 {
     class Level
     {
@@ -11,6 +11,7 @@ namespace SDLProj.Classes.Level
         private readonly ArrayList area = new ArrayList();
         public Point Position = new Point(0, 400);
         public Size Size = new Size(10,800);
+
         public Level()
         {
             m_Background = new SdlDotNet.Graphics.Surface(ResourceData.grass);
@@ -18,7 +19,7 @@ namespace SDLProj.Classes.Level
         }
         public Size GetSize()
         {
-            return new Size(width,height );
+            return new Size(width,height);
         }
     }
 }
