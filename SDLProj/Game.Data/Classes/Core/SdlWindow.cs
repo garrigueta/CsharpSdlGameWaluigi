@@ -29,7 +29,9 @@ public class SdlWindow : IDisposable
         this.loaded = false;        
         this.hero = new Player();
     }
-
+    /// <summary>
+    /// Initial function called when game is started
+    /// </summary>
     public void Start()
     {
         Events.Tick += new EventHandler<TickEventArgs>(Tick);
@@ -49,14 +51,20 @@ public class SdlWindow : IDisposable
         surf.Fill(new Rectangle(new Point(0, 0), surf.Size), Color.Black);
         Events.Run();
     }
-
+    /// <summary>
+    /// First time Configuration, called once
+    /// </summary>
     private void ConfigElements()
     {
         this.hero.ConfigPlayer();
         this.level = new Level(this.hero);
         this.loaded = true;
     }
-
+    /// <summary>
+    /// Tick event called every frame
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Tick(object sender, TickEventArgs e)
     {
         if (this.loaded)
@@ -73,7 +81,11 @@ public class SdlWindow : IDisposable
             screen.Update();
         }
     }
-
+    /// <summary>
+    /// Quit function
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Quit(object sender, QuitEventArgs e)
     {
         Events.QuitApplication();

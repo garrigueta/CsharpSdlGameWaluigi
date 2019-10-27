@@ -1,6 +1,4 @@
-﻿using Game.Data.Classes.Core;
-using Game.Data.Classes.Players;
-using System;
+﻿using Game.Data.Classes.Players;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Drawing;
@@ -28,21 +26,29 @@ namespace Game.Data.Classes.Level
         {
             return new Size(width,height);
         }
-
+        /// <summary>
+        /// Check if player position is blocked by any element of the Level
+        /// </summary>
         public void CheckPlayerCollision()
         {
             this.hero.ApplyGravity = false;
             this.hero.AllowMoveLeft = false;
             this.hero.AllowMoveRight = false;
+            //ToDo
         }
-
+        /// <summary>
+        /// Retrun just the visible boxes
+        /// </summary>
+        /// <returns></returns>
         public Collection<Block> GetVisibleBlocks()
         {
             Collection<Block> visibleBlocks = new Collection<Block>();
-
+            //ToDo
             return visibleBlocks;
         }
-
+        /// <summary>
+        /// Scroll the level with the Player x axis increase/decrease
+        /// </summary>
         public void Scroll()
         {
             this.Position.X += this.hero.Scroll;
