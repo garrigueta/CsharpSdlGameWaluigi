@@ -64,7 +64,11 @@ public class SdlWindow : IDisposable
             screen.Fill(Color.Black);
             this.level.CheckPlayerCollision();
             this.hero.UpdatePosition();
-            //screen.Blit(level.m_Background, level.Position);
+            this.level.Scroll();
+            foreach (Block block in this.level.GetVisibleBlocks())
+            {
+                screen.Blit(block.Surface, block.position);
+            }
             screen.Blit(this.hero, this.hero.position);
             screen.Update();
         }

@@ -24,12 +24,15 @@ namespace Game.Data.Classes.Players
         int _jumpPosition;
         string _cursorStatus;
         public Joystick joystick;
+        int _scroll = 0;
 
         public bool ApplyGravity { get; set; } = false;
 
         public bool AllowMoveRight { get; set; } = false;
 
         public bool AllowMoveLeft { get; set; } = false;
+
+        public int Scroll { get => _scroll; }
 
         public void ConfigPlayer()
         {
@@ -134,6 +137,7 @@ namespace Game.Data.Classes.Players
                     modify = true;
                 }
                 this.position.X = (int)this.position.X - 2;
+                _scroll = -2;
             }
             if (this._rightArrowFired && AllowMoveRight)
             {
@@ -143,7 +147,7 @@ namespace Game.Data.Classes.Players
                     modify = true;
                 }
                 this.position.X = (int)this.position.X + 2;
-               
+                _scroll = 2;
             }
 
             this.position.Y -= _jumpPosition;
